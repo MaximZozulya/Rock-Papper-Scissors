@@ -7,7 +7,6 @@ function playGame(playerMove) {
 
     // Сравнение ходов 
     if (playerMove === 'Ножницы') {
-
       if (computerMove === 'Камень') {
         result = 'Ты проиграл !!!';
       } else if (computerMove === 'Бумага') {
@@ -17,7 +16,6 @@ function playGame(playerMove) {
       }
 
     } else if (playerMove === 'Бумага') {
-
       if (computerMove === 'Камень') {
         result = 'Ты выйграл !!!';
       } else if (computerMove === 'Бумага') {
@@ -27,7 +25,6 @@ function playGame(playerMove) {
       }
 
     } else if (playerMove === 'Камень') {
-
       if (computerMove === 'Камень') {
         result = 'Нечия !!!';
       } else if (computerMove === 'Бумага') {
