@@ -1,5 +1,11 @@
 'use strict';
 
+  const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0,
+  }
+
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
@@ -34,8 +40,19 @@ function playGame(playerMove) {
       }
     }
 
+    // Сохранение результата в обьекте score 
+      if (result === 'Ты выйграл !!!') {
+        score.wins += 1;
+      } else if (result === 'Ты проиграл !!!') {
+        score.losses += 1;
+      } else if (result === 'Нечия !!!') {
+        score.ties += 1;
+      }
+
+
     // Вывод результата
-    alert(`Ты выбрал ${playerMove}.\nКомпьютер выбрал ${computerMove}.\n${result} `);
+    alert(`Ты выбрал ${playerMove}.\nКомпьютер выбрал ${computerMove}.\n${result}
+Ты выйграл : ${score.wins}, Ты проиграл: ${score.losses}, Нечия: ${score.ties}.`);
 }
 
 function pickComputerMove() {
