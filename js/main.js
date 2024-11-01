@@ -1,7 +1,12 @@
 'use strict';
 
     // Извлечение значения из глобального хранилища
-    const score = (JSON.parse(localStorage.getItem('score'))); // Преобразование строки из хранилища в обьект 
+    let score = (JSON.parse(localStorage.getItem('score'))) // Преобразование строки из хранилища в обьект 
+      || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
 
   function playGame(playerMove) {
     const computerMove = pickComputerMove();
@@ -48,7 +53,6 @@
     
     // Сохранение значения в локальном хранилище
       localStorage.setItem('score', JSON.stringify(score)); // Преобразование обьекта в строку
-
 
     // Вывод результата
     alert(`Ты выбрал ${playerMove}.\nКомпьютер выбрал ${computerMove}.\n${result}
