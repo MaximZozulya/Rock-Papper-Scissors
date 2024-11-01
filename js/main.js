@@ -1,13 +1,10 @@
 'use strict';
 
-  const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0,
-  }
+    // Извлечение значения из глобального хранилища
+    const score = (JSON.parse(localStorage.getItem('score'))); // Преобразование строки из хранилища в обьект 
 
-function playGame(playerMove) {
-  const computerMove = pickComputerMove();
+  function playGame(playerMove) {
+    const computerMove = pickComputerMove();
 
     let result = '';
 
@@ -48,6 +45,9 @@ function playGame(playerMove) {
       } else if (result === 'Нечия !!!') {
         score.ties += 1;
       }
+    
+    // Сохранение значения в локальном хранилище
+      localStorage.setItem('score', JSON.stringify(score)); // Преобразование обьекта в строку
 
 
     // Вывод результата
