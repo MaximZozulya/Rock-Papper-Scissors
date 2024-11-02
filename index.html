@@ -10,11 +10,17 @@
   <button onclick="playGame('Камень');">Камень</button>
   <button onclick="playGame('Бумага');">Бумага</button>
   <button onclick="playGame('Ножницы');">Ножницы</button>
+
+  <p class="js-result"></p>
+  <p class="js-move"></p>
+  <p class="js-score"></p>
+
   <button onclick="
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
     localStorage.removeItem('score');
+    updateScoreElement();
   ">Сброс счёта</button>
 
   <script src="js/main.js"></script>

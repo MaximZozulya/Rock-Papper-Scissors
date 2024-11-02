@@ -7,8 +7,10 @@
         losses: 0,
         ties: 0,
       };
+    
+    updateScoreElement();
 
-  function playGame(playerMove) {
+    function playGame(playerMove) {
     const computerMove = pickComputerMove();
 
     let result = '';
@@ -53,28 +55,37 @@
     
     // Сохранение значения в локальном хранилище
       localStorage.setItem('score', JSON.stringify(score)); // Преобразование обьекта в строку
-
+    
     // Вывод результата
-    alert(`Ты выбрал ${playerMove}.\nКомпьютер выбрал ${computerMove}.\n${result}
-Ты выйграл : ${score.wins}, Ты проиграл: ${score.losses}, Нечия: ${score.ties}.`);
+    updateScoreElement();
+
+    document.querySelector('.js-result').innerHTML = result;
+    document.querySelector('.js-move').innerHTML = `Ты ${playerMove} - Компьютер ${computerMove}.`;
+
 }
 
-function pickComputerMove() {
-   // Генерация случайного числа
-  const randomNumber = Math.random();
-  
-  let computerMove = '';
-
-   // Выбор компьютерного хода
-    if (randomNumber >= 0 && randomNumber < 1 / 3) {
-      computerMove = 'Камень';
-
-    } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-      computerMove = 'Бумага';
-
-    } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-      computerMove = 'Ножницы';
+    function updateScoreElement() {
+      document.querySelector('.js-score')
+        .innerHTML = `Ты выйграл : ${score.wins}, Ты проиграл: ${score.losses}, Нечия: ${score.ties}.`;
     }
 
-    return computerMove;
-}
+
+    function pickComputerMove() {
+    // Генерация случайного числа
+      const randomNumber = Math.random();
+      
+      let computerMove = '';
+
+    // Выбор компьютерного хода
+      if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        computerMove = 'Камень';
+
+      } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+        computerMove = 'Бумага';
+
+      } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+        computerMove = 'Ножницы';
+      }
+
+      return computerMove;
+  }
