@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Камень ножницы бумага</title>
-</head>
-<body>
-  <p>Камень ножницы бумага</p>
-  <button onclick="playGame('Камень');">Камень</button>
-  <button onclick="playGame('Бумага');">Бумага</button>
-  <button onclick="playGame('Ножницы');">Ножницы</button>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Камень ножницы бумага</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box-button">
+        <p class="title">Камень ножницы бумага</p>
+        <button class="move-button" onclick="playGame('Камень');">
+          <img class="move-icon" src="img/Камень.png" alt="button-rock"></button>
+        <button class="move-button" onclick="playGame('Бумага');">
+          <img class="move-icon" src="img/Бумага.png" alt="button-paper"></button>
+        <button class="move-button" onclick="playGame('Ножницы');">
+          <img class="move-icon" src="img/Ножницы.png" alt="button-scissors"></button>
+      </div>
 
-  <p class="js-result"></p>
-  <p class="js-move"></p>
-  <p class="js-score"></p>
+      <div class="box-result">
+        <p class="js-result result"></p>
+        <p class="js-move"></p>
+        <p class="js-score score"></p>
+      </div>
+   
+      <button class="reset-score-button" onclick="
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+      ">Сброс счёта</button>
+    </div>
 
-  <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem('score');
-    updateScoreElement();
-  ">Сброс счёта</button>
-
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

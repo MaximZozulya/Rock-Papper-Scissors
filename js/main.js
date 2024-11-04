@@ -60,7 +60,9 @@
     updateScoreElement();
 
     document.querySelector('.js-result').innerHTML = result;
-    document.querySelector('.js-move').innerHTML = `Ты ${playerMove} - Компьютер ${computerMove}.`;
+    document.querySelector('.js-move')
+      .innerHTML = `Ты <img class="move-icon" src="img/${playerMove}.png">
+                     <img class="move-icon" src="img/${computerMove}.png">Компьютер`;
 
 }
 

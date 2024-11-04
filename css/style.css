@@ -1,0 +1,64 @@
+body {
+  width: 870px;
+  margin: 0 auto;
+  background-color: rgb(25, 25, 25);
+  color: #ffffff;
+  font-family: Arial;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.box-button {
+  width: 410px;
+  margin: 0 auto;
+}
+
+.box-result {
+  width: 308px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.move-button {
+  width: 120px;
+  height: 120px;
+  background-color: transparent;
+  border: 3px solid #ffffff;
+  border-radius: 60px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.score {
+  margin-top: 60px;
+}
+
+.reset-score-button {
+  width: 100%;
+  background-color: transparent;
+  color: rgb(207, 188, 14);
+  border: 3px solid #ffffff;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+}
