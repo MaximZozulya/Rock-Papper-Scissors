@@ -10,6 +10,24 @@
     
     updateScoreElement();
 
+    let isAutoPlaing = false;
+    let intervalId;
+    
+    // Функция автозапуска игры
+    function autoPlay() {
+      if (!isAutoPlaing) {
+        intervalId = setInterval(function() {
+        const playerMove = pickComputerMove();
+        playGame(playerMove);
+      }, 1000);
+      isAutoPlaing = true;
+
+      } else {
+        clearInterval(intervalId);
+        isAutoPlaing = false;
+      }
+    }
+
     function playGame(playerMove) {
     const computerMove = pickComputerMove();
 
@@ -70,7 +88,6 @@
       document.querySelector('.js-score')
         .innerHTML = `Ты выйграл : ${score.wins}, Ты проиграл: ${score.losses}, Нечия: ${score.ties}.`;
     }
-
 
     function pickComputerMove() {
     // Генерация случайного числа
