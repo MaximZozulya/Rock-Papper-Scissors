@@ -54,6 +54,17 @@
         playGame('Ножницы');
       });
 
+    document.body.addEventListener('keydown', (event) => {
+      if (event.key === '1') {
+        playGame('Камень');
+
+      } else if (event.key === '2') {
+        playGame('Бумага');
+
+      } else if (event.key === '3') {
+        playGame('Ножницы');
+      }
+    });
 
     function playGame(playerMove) {
     const computerMove = pickComputerMove();
