@@ -7,31 +7,42 @@
         losses: 0,
         ties: 0,
       };
+
+    document.querySelector('.reset-score-button')
+      .addEventListener('click', () => {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+        updateScoreElement();
+      });  
     
-    updateScoreElement();
+      updateScoreElement();
 
     let isAutoPlaing = false;
     let intervalId;
     
     // Функция автозапуска игры
-    function autoPlay() {
-      if (!isAutoPlaing) {
-        intervalId = setInterval(function() {
-        const playerMove = pickComputerMove();
-        playGame(playerMove);
-      }, 1000);
-      isAutoPlaing = true;
+    document.querySelector('.auto-play-button')
+      .addEventListener('click', () => {
+        if (!isAutoPlaing) {
+          intervalId = setInterval(function() {
+          const playerMove = pickComputerMove();
+          playGame(playerMove);
+        }, 1000);
+        isAutoPlaing = true;
 
-      } else {
-        clearInterval(intervalId);
-        isAutoPlaing = false;
-      }
-    }
+        } else {
+          clearInterval(intervalId);
+          isAutoPlaing = false;
+        }
+      });
+
 
     document.querySelector('.js-rock-button')
       .addEventListener('click', () => {
         playGame('Камень');
-    });
+      });
 
     document.querySelector('.js-paper-button')
       .addEventListener('click', () => {
